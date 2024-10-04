@@ -9,9 +9,43 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-  <app-root>
-    <div id="root">
-          </div> 
+  <app-root><div class="example">
+    <h1>FlipDown.js</h1>
+    <p>⏰ A lightweight and performant flip styled countdown clock</p>
+    <div id="flipdown" class="flipdown"></div>
+    <div class="buttons">
+      <p>Version: <span id="ver"></span> (&lt;11KB minified)</p>
+      <a href="https://github.com/PButcher/flipdown#flipdown" target="_blank" class="button"><i class="fab fa-github"></i> <span>Get started</span></a>
+    </div>
+  </div>
+  <script>document.addEventListener('DOMContentLoaded', () => {
+
+    // Unix timestamp (in seconds) to count down to
+    var twoDaysFromNow = (new Date().getTime() / 1000) + (86400 * 2) + 1;
+  
+    // Set up FlipDown
+    var flipdown = new FlipDown(twoDaysFromNow)
+  
+      // Start the countdown
+      .start()
+  
+      // Do something when the countdown ends
+      .ifEnded(() => {
+        console.log('The countdown has ended!');
+      });
+  
+    // Toggle theme
+    var interval = setInterval(() => {
+      let body = document.body;
+      body.classList.toggle('light-theme');
+      body.querySelector('#flipdown').classList.toggle('flipdown__theme-dark');
+      body.querySelector('#flipdown').classList.toggle('flipdown__theme-light');
+    }, 5000);
+    
+    var ver = document.getElementById('ver');
+    ver.innerHTML = flipdown.version;
+  });
+  </script>
 </app-root>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
