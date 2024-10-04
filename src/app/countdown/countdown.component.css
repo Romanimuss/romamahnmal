@@ -1,0 +1,3 @@
+<div id="countdown" style="text-align: center; font-size: 2em; margin-top: 20px;">
+  {{ remainingTime }}
+</div>
