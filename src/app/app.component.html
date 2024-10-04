@@ -43,44 +43,8 @@
 
 <h1>UPRE ROMA</h1>
 
-<div class="example">
-  <h1>!! Count Down !!</h1>
-  <p>⏰ Die Tage und die stunden laufen...</p>
-  <div id="flipdown" class="flipdown"></div>
-  <div class="buttons">
-    <p>Version: <span id="ver"></span> (&lt;11KB minified)</p>
-    <a href="https://github.com/PButcher/flipdown#flipdown" target="_blank" class="button"><i class="fab fa-github"></i> <span>Get started</span></a>
-  </div>
-</div>
 
-<script>document.addEventListener('DOMContentLoaded', () => {
 
-  // Unix timestamp (in seconds) to count down to
-  var twoDaysFromNow = (new Date().getTime() / 1000) + (86400 * 2) + 1;
-
-  // Set up FlipDown
-  var flipdown = new FlipDown(twoDaysFromNow)
-
-    // Start the countdown
-    .start()
-
-    // Do something when the countdown ends
-    .ifEnded(() => {
-      console.log('The countdown has ended!');
-    });
-
-  // Toggle theme
-  var interval = setInterval(() => {
-    let body = document.body;
-    body.classList.toggle('light-theme');
-    body.querySelector('#flipdown').classList.toggle('flipdown__theme-dark');
-    body.querySelector('#flipdown').classList.toggle('flipdown__theme-light');
-  }, 5000);
-  
-  var ver = document.getElementById('ver');
-  ver.innerHTML = flipdown.version;
-});
-</script>
 
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
